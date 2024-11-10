@@ -1,6 +1,10 @@
 import { Hono } from "hono";
+import { handle } from "hono/vercel";
 
-const app = new Hono();
+// const app = new Hono();
+
+export const runtime = "edge";
+const app = new Hono().basePath("/api");
 
 app.get("/api/proxy", async (c) => {
   const url = c.req.query("url");
@@ -27,7 +31,9 @@ app.get("/api/proxy", async (c) => {
   }
 });
 
-export default app;
+export const GET = handle(app);
+export const POST = handle(app);
+// export default app;
 // export default {
 //   port: 3001,
 //   fetch: app.fetch,
