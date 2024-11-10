@@ -1,11 +1,8 @@
-To install dependencies:
-```sh
-bun install
+```txt
+npm install
+npm run dev
 ```
 
-To run:
-```sh
-bun run dev
+```txt
+npm run deploy
 ```
-
-open http://localhost:3000
